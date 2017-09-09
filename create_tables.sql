@@ -20,53 +20,36 @@ USE `shopping_mall` ;
 -- -----------------------------------------------------
 -- Table `shopping_mall`.`Goods`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shopping_mall`.`Goods` (
+CREATE TABLE IF NOT EXISTS `shopping_mall`.`상품` (
   `상품아이디` INT NOT NULL AUTO_INCREMENT,
   `판매자` CHAR(30) NOT NULL,
   `상품정보` TEXT NULL,
-  PRIMARY KEY (`상품아이디`))
-ENGINE = InnoDB
-COMMENT = '상품정보';
+  PRIMARY KEY (`상품아이디`)
+) ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `shopping_mall`.`Order`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shopping_mall`.`Order` (
+CREATE TABLE IF NOT EXISTS `shopping_mall`.`주문` (
   `상품아이디` INT NOT NULL,
-  `주문자` CHAR(30) NULL,
-  `주문일시` DATETIME(20) NOT NULL,
-  PRIMARY KEY (`상품아이디`),
-  CONSTRAINT `상품아이디`
-    FOREIGN KEY (`상품아이디`)
-    REFERENCES `shopping_mall`.`Goods` (`상품아이디`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  `주문자` CHAR(30) NOT NULL,
+  `주문일시` DATETIME(5) 
+) ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `shopping_mall`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shopping_mall`.`User` (
+CREATE TABLE IF NOT EXISTS `shopping_mall`.`회원` (
   `이메일` CHAR(30) NOT NULL,
   `이름` VARCHAR(45) NOT NULL,
   `암호` VARCHAR(45) NOT NULL,
   `주소` VARCHAR(100) NULL,
   `전화번호` VARCHAR(45) NULL,
   `레벨` TINYINT(1) NOT NULL,
-  PRIMARY KEY (`이메일`),
-  CONSTRAINT `주문자`
-    FOREIGN KEY ()
-    REFERENCES `shopping_mall`.`Order` ()
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `판매자`
-    FOREIGN KEY ()
-    REFERENCES `shopping_mall`.`Order` ()
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  PRIMARY KEY (`이메일`)
+)ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
