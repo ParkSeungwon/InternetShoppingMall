@@ -18,27 +18,6 @@ CREATE SCHEMA IF NOT EXISTS `shopping_mall` DEFAULT CHARACTER SET utf8 ;
 USE `shopping_mall` ;
 
 -- -----------------------------------------------------
--- Table `shopping_mall`.`Goods`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shopping_mall`.`상품` (
-  `상품아이디` INT NOT NULL AUTO_INCREMENT,
-  `판매자` CHAR(30) NOT NULL,
-  `상품정보` TEXT NULL,
-  PRIMARY KEY (`상품아이디`)
-) ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `shopping_mall`.`Order`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `shopping_mall`.`주문` (
-  `상품아이디` INT NOT NULL,
-  `주문자` CHAR(30) NOT NULL,
-  `주문일시` DATETIME(5) 
-) ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `shopping_mall`.`User`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `shopping_mall`.`회원` (
@@ -50,6 +29,32 @@ CREATE TABLE IF NOT EXISTS `shopping_mall`.`회원` (
   `레벨` TINYINT(1) NOT NULL,
   PRIMARY KEY (`이메일`)
 )ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `shopping_mall`.`Goods`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `shopping_mall`.`상품` (
+  `상품아이디` INT NOT NULL AUTO_INCREMENT,
+  `판매자` CHAR(30) NOT NULL,
+  `상품정보` TEXT NULL,
+  PRIMARY KEY (`상품아이디`),
+  constraint `fk_1` foreign key (`판매자`) references `회원` (`이메일`)
+) ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `shopping_mall`.`Order`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `shopping_mall`.`주문` (
+  `상품아이디` INT NOT NULL,
+  `주문자` CHAR(30) NOT NULL,
+  `주문일시` DATETIME(5),
+  `수량` INT NOT NULL,
+  `메모` varchar(100) NULL,
+constraint `fk_2` FOREIGN KEY (상품아이디) REFERENCES 상품 (상품아이디),
+constraint `fk_3` foreign key (주문자) references 회원 (이메일)
+) ENGINE = InnoDB;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
