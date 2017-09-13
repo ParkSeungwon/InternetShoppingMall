@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="euc-kr"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+              "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>InterNet Shopping Mall</title>
+    <script type="text/javascript">
+     <!--
+	   function LoginPage(){//새로운 윈도우를 호출하는 함수
+	     var url = "LoginPage.html";//새로운 윈도우에 표시될 페이지
+		 //가로세로 250픽셀에 툴바,주소표시줄,상태표시줄, 스크롤바가 없고, 크기를 조정할 수 없는 윈도우호출
+		 window.open(url, "selectSubject","width=250, height=250");//호출되는 윈도우에 표시될 페이지는 url변수가 가짐
+	   }
+
+	  //-->
+   </script>
+    <style>
+      #jb-container {
+        width: 940px;
+        margin: 0px auto;
+        padding: 20px;
+        border: 1px solid #bcbcbc;
+      }
+      #jb-header {
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #bcbcbc;
+      }
+      #jb-sidebar-left {
+        width: 160px;
+        padding: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        float: left;
+        border: 1px solid #bcbcbc;
+      }
+      #jb-content {
+        width: 450px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: left;
+        border: 1px solid #bcbcbc;
+      }
+      #jb-sidebar-right {
+        width: 160px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: right;
+        border: 1px solid #bcbcbc;
+      }
+      #jb-footer {
+        clear: both;
+        padding: 20px;
+        border: 1px solid #bcbcbc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jb-container">
+      <div id="jb-header">
+        <h1>InterNet Shopping Mall</h1>
+      </div>
+      <div id="jb-sidebar-left">
+        <h2>Category</h2>
+        <ul>
+          <li>Fashion</li>
+          <li>Digital</li>
+          <li>Sport</li>
+          <li>Life</li>
+          <li>Food</li>
+          <li>Entertainment</li>
+        </ul>
+      </div>
+      <div id="jb-content">
+        <h2>Content</h2>
+        <p>Content1</p>
+        <p>Content2</p>
+      </div>
+      <div id="jb-sidebar-right">
+        <h2>Login</h2>
+	<input type="button" value="Login" onclick="LoginPage()"/><br/>
+        <ul>
+          <li>Id</li>
+          <li>Password</li>
+        </ul>
+      </div>
+      <div id="jb-footer">
+        <p>BottonBar</p>
+      </div>
+    </div>
+  </body>
+</html>
