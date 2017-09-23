@@ -6,7 +6,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
 function f() {
-	alert("test");
 	var json_data = {
 		email : email.value,
 		password : password.value,
@@ -16,10 +15,13 @@ function f() {
 		username : name_.value
 	};
 	replace.innerHTML = "HELLO";
-	$("p").hide();
-	$.post("cgi-bin/a.py", json_data, function (data, status) {
-		$("#replace").html(data);	
-	});
+	if (json_data[password] == json_data[verify]) {
+		$.post("login.cgi", json_data, function (data, status) {
+			replace.innerHTML = data;
+		});
+	} else {
+		replace.innerHTML ='password not match';
+	}
 }  
   </script>
  </head>
