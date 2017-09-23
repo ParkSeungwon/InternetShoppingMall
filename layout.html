@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="euc-kr"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,18 +7,23 @@
   <head>
     <meta charset="utf-8">
     <title>InterNet Shopping Mall</title>
-    <script src=""></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
     <script type="text/javascript">
     function log() {
     	var logdata = {
-    		email : email.value;
-    		password : password.value;
+    		email : email.value,
+    		password : pass.value
     	}
-    	$.post("cgi-bin/python.py", logdata, function (data, status) {
-    		if (data == "ok") {
-    			
-    		}
-    	} )
+    	$.post("signin.cgi", logdata, function (data, status) {
+    		if (data == "loggin failed") replace.innerHTML = data;
+    		else {
+    			replace.innerHTML = 'lggin as '+ data;
+    			jb-top-sidebar.hide();
+    		}	
+    	} );
     }
      <!--
 	   function LoginPage(){//새로운 윈도우를 호출하는 함수
@@ -121,10 +126,11 @@
   <body>
 	font-family:'Malgun Gothic';
 	<div id="jb-top-sidebar">
-	email<input type="text" name="email"/><br>
-	password<input type="password" name="pass"/><br>
-		<input type="button" id="email" onclick=log() value="Login" class="LogInButton">
-		<input type="button" id="password" value="Sign in" class="SignInButon">
+	email<input type="text" id="email"/><br>
+	password<input type="password" id="pass"/><br>
+		<input type="button" id="email" onclick="log()" value="Login" class="LogInButton">
+		<a href="signin.html"><input type="button" id="password" value="Sign in" class="SignInButon"></a>
+		<p id="replace"></p>
       	</div>
      
       

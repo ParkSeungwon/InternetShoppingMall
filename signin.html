@@ -16,7 +16,7 @@ function f() {
 	};
 	replace.innerHTML = "HELLO";
 	if (json_data[password] == json_data[verify]) {
-		$.post("login.cgi", json_data, function (data, status) {
+		$.post("signin.cgi", json_data, function (data, status) {
 			replace.innerHTML = data;
 		});
 	} else {
