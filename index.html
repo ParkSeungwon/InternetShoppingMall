@@ -8,6 +8,7 @@
   <script>
     function log() {
     	if(loginbt.value == 'Login') {
+    		if(email.value =='') return;
     		var logdata = {
     			email : email.value,
     			password : pass.value
@@ -125,7 +126,7 @@
 	font-family:'Malgun Gothic';
 	<div id="jb-top-sidebar">
 	<div id="log_panel" style="visibility:visible;">
-	email<input type="text" id="email"/><br>
+	email<input type="email" id="email"/><br>
 	password<input type="password" id="pass"/><br>
 		<input type="button" onclick="log()" id="loginbt" value="Login" class="LogInButton">
 		<a id="link" href="signin.html"><input type="button" id="signin" value="Sign in" class="SignInButon"></a>
