@@ -9,10 +9,11 @@ email = form.getvalue('email')
 password = form.getvalue('password')
 
 conn = create_engine('mysql://shopping_mall:shopping_mall@localhost/shopping_mall?charset=utf8')
-df = read_sql("select 암호, 이름 from 회원 where 이메일 = '" + email + "';", conn)
+df = read_sql(u"select 암호, 이름 from 회원 where 이메일 = '" + email + "';", conn)
 if df[u'암호'][0] == password: 
     print 'Set-Cookie:email=' + email + ';\r\n'
-    #print "Content-type:text/html\r\n"
+    print "Content-type:text/html\r\n"
     print "logged in as " + email;
 else: 
+    print "Content-type:text/html\r\n"
     print 'log in failed'    
