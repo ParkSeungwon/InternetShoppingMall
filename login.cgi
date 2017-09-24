@@ -12,7 +12,6 @@ conn = create_engine('mysql://shopping_mall:shopping_mall@localhost/shopping_mal
 df = read_sql(u"select 암호, 이름 from 회원 where 이메일 = '" + email + "';", conn)
 if df.size > 0 and df[u'암호'][0] == password: 
     print 'Set-Cookie:email=' + email + ';\r\n'
-    print "Content-type:text/html\r\n"
     print "logged in as " + email;
 else: 
     print "Content-type:text/html\r\n"
