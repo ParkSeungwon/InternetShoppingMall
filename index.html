@@ -17,6 +17,8 @@
    		 		if (data != "log in failed\n") {//\n!!!!!
     				$("input").attr('readonly', true);
    		 			loginbt.value ='Logout';
+   		 			signin.value = 'sell item';
+   		 			link.href = 'upload.html';
     			}
     		} );
     	} else {
@@ -24,6 +26,8 @@
     		loginbt.value ='Login';
     		email.value = '';
     		pass.value = '';
+    		link.href = 'signin.html';
+    		signin.value = 'signin';
     		replace.innerHTML = '';
     	}
     }
@@ -124,8 +128,8 @@
 	email<input type="text" id="email"/><br>
 	password<input type="password" id="pass"/><br>
 		<input type="button" onclick="log()" id="loginbt" value="Login" class="LogInButton">
-		<a href="signin.html"><input type="button" id="password" value="Sign in" class="SignInButon"></a>
-
+		<a id="link" href="signin.html"><input type="button" id="signin" value="Sign in" class="SignInButon"></a>
+		
       	</div>
     	<p id="replace"></p> 
       </div>
