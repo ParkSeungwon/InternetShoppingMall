@@ -26,10 +26,19 @@ function log() {
 }
 
 function search() {
-	alert($("#search-text").val());
-	var jv = { "search" : search-text.value };
+	var v = $("#search-text").val();
+	var jv = { search : v };
 	$.post("search.cgi", jv, function(data, status) {
-		$("#replace").html(data);
+		var dat = data.split("$$separator$$");
+		alert(data);
+		var i=0;
+		var lines = '';
+		while(i<dat.length) {
+			lines += "<tr><td><img height=250 width=250 src='image/" + dat[i++] + "'></td>";
+			for(j=1; j<4; j++) lines += '<td>' + dat[i++] + '</td>';
+			lines += '</tr>'
+		}
+		$("#goods").html(lines);
 	});
 }
 
