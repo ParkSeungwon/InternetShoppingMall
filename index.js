@@ -26,15 +26,14 @@ function log() {
 }
 
 function search() {
-	var v = $("#search-text").val();
-	var jv = { search : v };
+	var jv = { search : $("#search-text").val() };
 	$.post("search.cgi", jv, function(data, status) {
 		var dat = data.split("$$separator$$");
 		var i=0;
 		var lines = '';
-		while(i<dat.length) {
+		while(i<dat.length-1) {
 			lines += "<tr><td><img height=250 width=250 src='image/" + dat[i++] + "'></td>";
-			for(j=1; j<4; j++) lines += '<td>' + dat[i++] + '</td>';
+			for(j=1; j<5; j++) lines += '<td>' + dat[i++] + '</td>';
 			lines += '</tr>'
 		}
 		$("#goods").html(lines);
