@@ -30,7 +30,6 @@ function search() {
 	var jv = { search : v };
 	$.post("search.cgi", jv, function(data, status) {
 		var dat = data.split("$$separator$$");
-		alert(data);
 		var i=0;
 		var lines = '';
 		while(i<dat.length) {
