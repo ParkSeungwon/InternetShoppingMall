@@ -19,6 +19,5 @@ for i in range(y):
     content_ += "' height=300 width=300 /></td>";
     for(j in range(x-1): content_ += "<td>" + df.iloc[y, j+1] + "</td>";
     content_ += "</tr>";
-}
 content_ += "</table>";
 print content_

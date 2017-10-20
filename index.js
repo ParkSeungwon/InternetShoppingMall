@@ -8,14 +8,14 @@ function log() {
 		$.post("login.cgi", logdata, function (data, status) {
 			replace.innerHTML = data;   		 		
 			if (data != "log in failed\n") {//\n!!!!!
-				$("input").attr('readonly', true);
+				$("#log_panel").css('visibility', 'hidden');
 				loginbt.value ='Logout';
 				signin.value = 'sell item';
 				link.href = 'upload.html';
 			}
 		} );
 	} else {
-		$("input").attr('readonly', false);
+		$("#log_panel").css('visibility', 'visible');
 		loginbt.value ='Login';
 		email.value = '';
 		pass.value = '';
@@ -26,10 +26,10 @@ function log() {
 }
 
 function search() {
-	alert(search-text.value);
+	alert($("#search-text").val());
 	var jv = { "search" : search-text.value };
-	$.post("search.cgi", jv, fucntion(data, status) {
-		replace.innerHTML = data;
+	$.post("search.cgi", jv, function(data, status) {
+		$("#replace").html(data);
 	});
 }
 
