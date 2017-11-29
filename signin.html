@@ -1,0 +1,62 @@
+<html>
+ <head>
+  <meta charset="utf8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+function f() {
+	var json_data = {
+		email : email.value,
+		password : password.value,
+		verify : verify.value,
+		address : address.value,
+		tel : tel.value,
+		username : name_.value
+	};
+	replace.innerHTML = "HELLO";
+	if (json_data[password] == json_data[verify]) {
+		$.post("signin.cgi", json_data, function (data, status) {
+			replace.innerHTML = data;
+		});
+	} else {
+		replace.innerHTML ='password not match';
+	}
+}  
+  </script>
+ </head>
+ <body>
+	 <div class="container">
+		 <div class="jumbotron"><h1>가입하기</h1>
+			 </div>
+	 <div class="form-group">
+		 <label for="email">이메일</label>
+   <input class="form-control" id="email" type="email" />
+	 </div>
+   <div class="form-group">
+	   <label for="password">패스워드</label>
+   <input class="form-control" id="password" type="password" />
+	 </div>
+   <div class="form-group">
+	   <label for="verify">확인</label>
+   <input id="verify" class="form-control" type="password" />
+	 </div>
+   <div class="form-group">
+	   <label for="namei_">이름</label>
+   <input id="name_" class="form-control" type="text" >
+	 </div>
+   <div class="form-group">
+	   <label for="address">주소</label>
+   <input id="address" type="text" class="form-control">
+	 </div>
+   <div class="form-group">
+	   <label for="tel">전화번호</label>
+   <input id="tel" type="text" class="form-control">
+	 </div>
+   <div class="form-group" >
+   <button class="btn btn-primary" onclick="f()">OK</button>
+	 </div>
+	 </div></div>
+<p id="replace"></p>
+ </body>
+</html>

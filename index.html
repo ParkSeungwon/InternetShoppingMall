@@ -1,0 +1,33 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>InterNet Shopping Mall</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="index.js"></script>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
+	
+  <body>
+	<div id="jb-top-sidebar">
+	<div id="log_panel" style="visibility:visible;">
+	email<input type="email" id="email"/><br>
+	password<input type="password" id="pass"/><br>
+	</div>
+		<input type="button" onclick="log()" id="loginbt" value="Login" class="LogInButton">
+		<a id="link" href="signin.html"><input type="button" id="signin" value="Sign in" class="SignInButon"></a>
+		
+    	<p id="replace">아름다운 가게</p> 
+      </div>
+      <div id="jb-content">
+        <h2> </h2>
+      </div>
+     
+      <div id="jb-SearchLayout">
+        <input type="text" id="search-text" size="25" class="searchTBox">
+		<input type="button" onclick="search()" class="searchButton" value="Search">
+      </div>
+	  <table bgcolor='#005500' border='1' id="goods"></table>
+  </body>
+</html>
