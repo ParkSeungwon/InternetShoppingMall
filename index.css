@@ -1,8 +1,15 @@
 	body
 	{
+<<<<<<< HEAD
 		background-image:url('놀러와요.png');
 		background-repeat: repeat;
 		background-size: auto;
+=======
+		background-image:url('background.jpg');
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+>>>>>>> master
 	}
 	#bg {
 	  position: fixed; 
@@ -15,7 +22,11 @@
 	width: 100%;
 	padding: 5px;
 	margin-bottom: 15%;
+<<<<<<< HEAD
 	color:#00FF00;
+=======
+	color:#FFFFFF;
+>>>>>>> master
 	text-align:right
 	
 	}      
@@ -24,9 +35,15 @@
 	min-height: 10%;
         margin-bottom: 20px;
         
+<<<<<<< HEAD
 
 	color:#000000;
 	font-size: 69pt;
+=======
+	background-color: #FFFFFF;
+	color:#000000;
+	font-size: 30pt;
+>>>>>>> master
 	text-align:center
 
       }

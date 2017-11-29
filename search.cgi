@@ -9,7 +9,13 @@ form = cgi.FieldStorage()
 s = unicode(form.getvalue('search'), 'utf8')
 
 print "Content-type:text/html\r\n"
+<<<<<<< HEAD
 conn = create_engine('mysql://shopping_mall:shopping_mall@localhost/shopping_mall?charset=utf8')
+=======
+remote = 'mysql://inzent:1q2w3e4r!@inzent.cyuky5umqyhf.ap-northeast-2.rds.amazonaws.com/inzent?charset=utf8'
+local = 'mysql://shopping_mall:shopping_mall@localhost/shopping_mall?charset=utf8'
+conn = create_engine(remote)
+>>>>>>> master
 df = read_sql_table(u'상품', conn)
 df = df[df[u'상품정보'].str.contains(s) | df[u'상품명'].str.contains(s)]
 y, x = df.shape

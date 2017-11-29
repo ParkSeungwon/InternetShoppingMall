@@ -10,7 +10,11 @@ function log() {
 			if (data != "log in failed\n") {//\n!!!!!
 				$("#log_panel").css('visibility', 'hidden');
 				loginbt.value ='Logout';
+<<<<<<< HEAD
 				signin.value = 'sell item';
+=======
+				signin.value = 'donate item';
+>>>>>>> master
 				link.href = 'upload.html';
 			}
 		} );
