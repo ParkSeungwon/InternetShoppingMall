@@ -15,7 +15,9 @@ tel = form.getvalue('tel')
 
 print "Content-type:text/html\r\n"
 print '<h2>hello cgi here</h2>' 
-conn = create_engine('mysql://shopping_mall:shopping_mall@localhost/shopping_mall?charset=utf8')
+remote = 'mysql://inzent:1q2w3e4r!@inzent.cyuky5umqyhf.ap-northeast-2.rds.amazonaws.com/inzent?charset=utf8'
+local = 'mysql://shopping_mall:shopping_mall@localhost/shopping_mall?charset=utf8'
+conn = create_engine(remote)
 df = read_sql(u"select * from 회원 where 이메일 = '" + email + "';", conn)
 if df.size > 0: 
     print "email already exist"

@@ -19,7 +19,9 @@ if os.environ.has_key('HTTP_COOKIE'):
             email = value;
             break;
 
-conn = sql.create_engine('mysql://shopping_mall:shopping_mall@localhost/shopping_mall?charset=utf8')
+remote = 'mysql://inzent:1q2w3e4r!@inzent.cyuky5umqyhf.ap-northeast-2.rds.amazonaws.com/inzent?charset=utf8'
+local = 'mysql://shopping_mall:shopping_mall@localhost/shopping_mall?charset=utf8'
+conn = create_engine(remote)
 conn.execute(u"insert into 상품 (판매자, 상품정보, 상품명) values ('" + email + "', '" + unicode(desc,'utf8') + "', '" + unicode(name,'utf8') + "');")
 df = pd.read_sql(u'select max(상품아이디) from 상품;', conn)
 
