@@ -1,1 +1,5 @@
 .mindmap
+find
+.
+-size
++3M
