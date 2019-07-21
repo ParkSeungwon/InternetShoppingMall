@@ -7,3 +7,5 @@ find
 -size
 .
 -size
+.
+-size
